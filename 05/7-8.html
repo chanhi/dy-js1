@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function randomInt() {
+            return Math.floor(Math.random()*9) + 1;
+        }
+    </script>
+</head>
+<body>
+    <h3>Math를 활용한 구구단 연습</h3>
+    <hr>
+
+    <script>
+        var start = new Date().getTime();
+        var ques = randomInt() + "*" +randomInt();
+        var user = prompt(ques + "값을 구하시오", 0);
+        var end = new Date().getTime();
+        var turm = end - start;
+        if(user == null) {
+            document.write("구구단 연습을 종료합니다.");
+        }
+        else {
+            var ans = eval(ques);
+            if(ans == user)
+                document.write("정답<br>");
+            else
+                document.write("오답<br>");
+                document.write(ques + "=" + "<strong>" + ans + "</strong>입니다.<br>");
+        }
+        alert(turm); //단위 ms 나중에 단위를 변환
+    </script>
+</body>
+</html>

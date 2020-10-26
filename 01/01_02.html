@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지</title>
+    <script>
+        function over(obj) {
+            obj.src="image/peach.jpg";
+        }
+        function out(obj) {
+            obj.src="image/w_m.jpg";
+        }
+    </script>
+</head>
+<body>
+    <h1>6-1</h1>
+    <img src="image/w_m.jpg" width="500" 
+    onmouseover="this.src='image/peach.jpg'"
+    onmouseout="this.src='image/w_m.jpg'">
+
+    <br>
+    <h1>6-2</h1>
+    <img src="image/w_m.jpg" width="500"
+    onmouseover="over(this)"
+    onmouseout="out(this)">
+</body>
+</html>

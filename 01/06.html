@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function promptDialog() {
+            var result = prompt("성명 입력");
+            if(result == null){
+                alert("취소 또는 닫기 버튼을 클릭함");
+            }else if(result == ""){
+                alert("입력된 정보가 없습니다. 진행하겠습니까?");
+            }else{
+                alert(result+"이(가) 맞습니까?");
+            }
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="promptDialog()">prompt 대화상자</button>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function change() {
+            var spanArr = document.getElementsByTagName("span");
+            for(var i=0; i<spanArr.length; i++){
+                spanArr[i].style.color = "magenta";
+                spanArr[i].style.fontSize = "25px";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>내가 좋아하는 과일 노래<button type="button" onclick="change()">클릭</button></h3>
+    <pre>
+        과일이 정말 좋아 종류도 
+        정말 많아요
+        나는 <span>딸기</span>가 좋아 
+        <span>포도</span>도 좋아요
+        
+        노란 <span>바나나</span> 먹고서 
+        우유 한 모금 마시면
+        너무 맛있어 짱이야 
+        과일을 먹어요
+        
+        <span>사과</span>랑 <span>파인애플</span> 
+        <span>복숭아</span> <span>멜론</span> <span>오렌지</span>
+        골라 먹어요 참 맛있는 
+        과일을 먹어요
+        골라 먹어요 참 맛있는 
+        과일을 먹어요
+    </pre>
+    
+</body>
+</html>

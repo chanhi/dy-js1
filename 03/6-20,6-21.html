@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>break, continue</title>
+</head>
+<body>
+    <script>
+        var i=0, sum=0;
+        while(true) {
+            sum += i;
+            if(sum > 3000)
+                break;
+            i++;
+        }
+        document.write(i + "까지 더하면 3000을 넘음 : " + sum);
+        sum = 0;
+        document.write("<br><hr><br>")
+        for(i=1; i<=10; i++) {
+            if(i%3 != 1)
+                continue;
+            document.write(i + " ");
+            sum += i;
+        }
+        document.write("합은 " + sum);
+    </script>
+</body>
+</html>
