@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onbeforeprint, onafterprint</title>
+    <style>
+        #logoDiv {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script>
+        window.onbeforeprint=function(e) {
+            logoDiv=document.getElementById("logoDiv");
+            logoDiv.style.display="block";
+        }
+        window.onafterprint=hideLogo;
+        function hideLogo() {
+            logoDiv = document.getElementById("logoDiv");
+            logoDiv.style.display = "none";
+            logoDiv.style.zIndex = -1;
+        }
+    </script>
+</head>
+<body>
+    <h3>onbeforeprint, onafterprint 이벤트 예</h3>
+    <hr>
+    <div id="logoDiv">
+        <img src="html.png" alt="이미지 없습니다.">
+    </div>
+    <p>
+        Hello world! this document isn't show in window. But it can see
+         in preview of print. Please click the mouse's right button
+    </p>
+</body>
+</html>

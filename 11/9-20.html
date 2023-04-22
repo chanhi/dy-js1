@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키 이벤트</title>
+    <script>
+        function whatKeyDown(e) {
+            var str = "";
+            var div = document.getElementById("div");
+            div.innerHTML = "";
+            str += "e.key=" + e.key + "<br>";
+            str += "e.code=" + e.code + "<br>";
+            div.innerHTML = str;
+        }
+    </script>
+</head>
+<body>
+    아무거나 입력 :: 이벤트 키와 코드를 출력<br>
+    <hr>
+    <input type="text" id="text" onkeydown="whatKeyDown(event)">
+    <div id="div" style="background-color: skyblue; width: 250px; height: 50px;"></div>
+</body>
+</html>

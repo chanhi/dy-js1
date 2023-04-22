@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onload로 이미지 크기 출력</title>
+    <script>
+        function changeImage() {
+            var sel = document.getElementById("sel");
+            var img = document.getElementById("myImg");
+            img.onload = function() {
+                var mySpan = document.getElementById("mySpan");
+                mySpan.innerHTML = img.width+ "x" + img.height;
+            }
+            var index = sel.selectedIndex;
+            img.src = sel.options[index].value;
+        }
+    </script>
+</head>
+<body onload="changeImage()">
+    <form>
+        <select id="sel" onchange="changeImage()">
+            <option value="image/bp.jpg">블랙핑크</option>
+            <option value="image/bts.jpg">BTS</option>
+            <option value="image/itzy.jpg">ITZY</option>
+        </select>
+        <span id="mySpan">이미지 크기</span>
+    </form>
+    <p><img src="image/bp.jpg" id="myImg" alt="."></p>
+</body>
+</html>

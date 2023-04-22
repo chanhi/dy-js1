@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Image And Clock</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        //웹페이지 배너에 랜덤한 이미지가 출력되며 5초마다 이미지가 변환되는 스크립트
+        
+        setInterval(
+            window.onload = function() {
+                var image = document.getElementById('image'); //id=image인 것을 가져온다
+                const IMG_NUMBER = 4; //순환시킬 이미지 개수
+                //문서 객체와 연결, 이미지의 총 개수 설정
+                image.src = `images/${genRandom() + 1}.jpg`;
+                image.width = 400;
+                image.height = 200;
+                //수학함수를 이용해서 랜덤으로 이미지의 숫자(1~4)를 반환
+                function genRandom() {
+                    const number = Math.floor(Math.random() * IMG_NUMBER);
+                    return number;
+                }
+            }, 5000
+        )
+
+        $(document).ready(function () {
+            //button과 연결
+            $('button').click(function () {
+                //시계에 fade효과를 준다
+                $('.js-clock').fadeToggle('slow');
+            });
+            // 스타일을 변경
+            $('h1').css('color', 'rgb(65, 65, 65)');
+        });
+    </script>
+    <style>
+        #image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .js-clock {
+            margin-top: 200px;
+            margin-bottom: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .clockHide {
+            position: absolute;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <img id="image" alt="">
+        <div class="js-clock">
+            <h1>00:00</h1>
+        </div>
+        <button class="clockHide">시계 감추기/다시 누르면 보임</button>
+    </div>
+    
+    <script>
+        //html 객체 연결
+        const clockContainer = document.querySelector(".js-clock");
+        const clockTitle = clockContainer.querySelector("h1");
+
+        function getTime() {
+            const date = new Date();
+            const minutes = date.getMinutes();
+            const hours = date.getHours();
+            const seconds = date.getSeconds();
+            //시간을 초, 분, 시 단위로 얻어 변수에 저장
+            clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours}:${
+                minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${
+                    seconds}` : seconds}`;
+                    //00:00:00의 형태가 유지되도록 설정
+        }
+        //1초씩 증가하는 시계 생성
+        function init() {
+            getTime();
+            setInterval(getTime, 1000);
+        }
+
+        init();
+    </script>
+</body>
+</html>
